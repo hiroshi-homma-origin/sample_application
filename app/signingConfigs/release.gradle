@@ -1,0 +1,8 @@
+signingConfigs {
+    release {
+        storeFile file('../../file/time_line.jks')
+        storePassword 'loco0512'
+        keyPassword 'loco0512'
+        keyAlias 'key0'
+    }
+}

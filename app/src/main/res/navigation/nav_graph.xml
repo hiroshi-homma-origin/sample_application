@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/TimeLineFragment">
+
+    <dialog
+        android:id="@+id/CheckMessageDialog"
+        android:name="com.example.timeline.ui.dialog.CheckMessageDialog"
+        android:label="@string/fragment_check_message_dialog"/>
+
+    <fragment
+        android:id="@+id/TimeLineFragment"
+        android:name="com.example.timeline.ui.timeline.timeline.TimeLineFragment"
+        android:label="@string/fragment_label_time_line"
+        tools:layout="@layout/fragment_time_line">
+        <action
+            android:id="@+id/action_TimeLineFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.example.timeline.ui.detail.DetailFragment"
+        android:label="@string/fragment_label_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="title"
+            app:argType="string"/>
+    </fragment>
+
+    <action android:id="@+id/action_global_CheckMessageDialog"
+        app:destination="@id/CheckMessageDialog" />
+
+</navigation>

@@ -1,0 +1,8 @@
+signingConfigs {
+    debug {
+        storeFile file('../../file/time_line_test.jks')
+        storePassword 'loco0512'
+        keyPassword 'loco0512'
+        keyAlias 'key0'
+    }
+}
