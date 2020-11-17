@@ -42,6 +42,7 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab"
+                style="@style/MyCustomTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -51,9 +52,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
+                app:tabGravity="center"
                 app:tabIndicatorColor="@android:color/holo_red_light"
                 app:tabIndicatorHeight="4dp"
-                app:tabGravity="center"
                 app:tabMode="scrollable" />
 
             <View
