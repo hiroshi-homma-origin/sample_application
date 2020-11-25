@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.timeline.databinding.FragmentDetailBinding
-import timber.log.Timber
 import javax.inject.Inject
 
 class DetailFragment @Inject constructor() : Fragment() {
@@ -28,7 +27,6 @@ class DetailFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Timber.d("check_args:$args")
         viewModel.setTitle(args.title)
         _binding = FragmentDetailBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@DetailFragment

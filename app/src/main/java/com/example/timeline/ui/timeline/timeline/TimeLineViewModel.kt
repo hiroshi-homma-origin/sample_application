@@ -10,16 +10,18 @@ import androidx.lifecycle.viewModelScope
 import com.kotlin.project.data.model.Master
 import com.kotlin.project.data.model.Result
 import com.kotlin.project.domain.usecase.GetMasterListUseCase
+import com.kotlin.project.domain.usecase.GetPokeListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 class TimeLineViewModel @Inject constructor(
     timeLineDelegate: TimeLineDelegate,
     application: Application,
-    private val getMasterListUseCase: GetMasterListUseCase
+    private val getMasterListUseCase: GetMasterListUseCase,
+    private val getPokeListUseCase: GetPokeListUseCase
 ) : AndroidViewModel(application), LifecycleObserver, TimeLineDelegate by timeLineDelegate {
+
     private val _currentTabNumber = MutableLiveData<Int>()
     override val currentTabNumber: LiveData<Int> = _currentTabNumber
 
@@ -30,11 +32,14 @@ class TimeLineViewModel @Inject constructor(
         _list.addSource(_currentTabNumber) {
             fetchData()
         }
+        registerPokeData()
     }
 
     fun setCurrentTab(position: Int) {
         _currentTabNumber.value = position
     }
+
+    fun getPokeList() = getPokeListUseCase.getPokeList()
 
     private fun fetchData() {
         viewModelScope.launch(Dispatchers.Default) {
@@ -44,9 +49,14 @@ class TimeLineViewModel @Inject constructor(
                 }
                 is Result.Error -> {
                     _list.postValue(listOf())
-                    Timber.d("check_error:${r.timeLineError}")
                 }
             }
+        }
+    }
+
+    private fun registerPokeData() {
+        viewModelScope.launch(Dispatchers.Default) {
+            getPokeListUseCase.registerListData(150, 1)
         }
     }
 }

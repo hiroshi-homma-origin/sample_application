@@ -25,6 +25,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "DOMAIN", "\"http://tk2-246-32569.vs.sakura.ne.jp/json/\""
+            buildConfigField "String", "DOMAIN_APPLO", "\"https://graphql-pokeapi.vercel.app/api/graphql\""
             buildConfigField "Long", "API_READ_TIMEOUT", "120L"
             buildConfigField "Long", "API_CONNECT_TIMEOUT", "120L"
         }
@@ -33,6 +34,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "DOMAIN", "\"http://tk2-246-32569.vs.sakura.ne.jp/json/\""
+            buildConfigField "String", "DOMAIN_APPLO", "\"https://graphql-pokeapi.vercel.app/api/graphql\""
             buildConfigField "Long", "API_READ_TIMEOUT", "120L"
             buildConfigField "Long", "API_CONNECT_TIMEOUT", "120L"
         }
@@ -60,6 +62,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     // Log
     implementation "com.jakewharton.timber:timber:$timber"
+    // apollo
+
+    implementation "com.apollographql.apollo:apollo-runtime:$apollo"
+    implementation "com.apollographql.apollo:apollo-normalized-cache-sqlite:$apollo"
+    implementation "com.apollographql.apollo:apollo-coroutines-support:$apollo"
+    implementation "com.apollographql.apollo:apollo-rx2-support:$apollo"
+    implementation "com.apollographql.apollo:apollo-api:$apollo"
     // Unit Test
     testImplementation "junit:junit:$junit"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
@@ -75,3 +84,5 @@ dependencies {
     testImplementation "com.google.truth:truth:$truth"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp"
 }
+
+apply plugin: "com.apollographql.apollo"

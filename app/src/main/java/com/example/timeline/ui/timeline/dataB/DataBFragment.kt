@@ -44,7 +44,7 @@ class DataBFragment @Inject constructor(
         path = arguments?.getString(EXTRA_KEY_PATH, "") ?: ""
         _binding = FragmentDataBBinding.inflate(inflater, container, false).apply {
             viewModel = this@DataBFragment.dataBViewModel
-            lifecycleOwner = this@DataBFragment
+            lifecycleOwner = viewLifecycleOwner
             settingRecyclerView(recyclerView)
         }
         lifecycle.addObserver(dataBViewModel)

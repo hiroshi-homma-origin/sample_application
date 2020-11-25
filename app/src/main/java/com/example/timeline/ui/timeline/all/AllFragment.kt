@@ -44,7 +44,7 @@ class AllFragment @Inject constructor(
         path = arguments?.getString(EXTRA_KEY_PATH, "") ?: ""
         _binding = FragmentAllBinding.inflate(inflater, container, false).apply {
             viewModel = this@AllFragment.allViewModel
-            lifecycleOwner = this@AllFragment
+            lifecycleOwner = viewLifecycleOwner
             settingRecyclerView(recyclerView)
         }
         lifecycle.addObserver(allViewModel)

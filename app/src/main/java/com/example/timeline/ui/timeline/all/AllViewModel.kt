@@ -12,7 +12,6 @@ import com.kotlin.project.data.model.TimeLineData
 import com.kotlin.project.data.model.TimeLineStatus
 import com.kotlin.project.domain.usecase.GetTimeLineListUseCase
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 class AllViewModel @Inject constructor(
@@ -51,14 +50,12 @@ class AllViewModel @Inject constructor(
         viewModelScope.launch {
             when (val r = getTimeLineListUseCase.getTimeLineList(path)) {
                 is Result.Success -> {
-                    Timber.d("check_success:${r.data}")
                     _list.postValue(r.data)
                     _timeLineStatus.postValue(TimeLineStatus.SUCCESS)
                 }
                 is Result.Error -> {
                     _list.postValue(listOf())
                     _timeLineStatus.postValue(TimeLineStatus.ERROR)
-                    Timber.d("check_error:${r.timeLineError}")
                 }
             }
         }

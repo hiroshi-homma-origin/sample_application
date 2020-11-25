@@ -39,7 +39,7 @@ class RecyclerViewAdapter(
             )
         }
         holder.binding.timeLine = list[position]
-        holder.binding.isSoldOut = list[position].status == "sold_out"
+        holder.binding.isSoldOut = list[position].status == "typeB"
         holder.binding.priceText = "$ ${list[position].price}"
     }
 

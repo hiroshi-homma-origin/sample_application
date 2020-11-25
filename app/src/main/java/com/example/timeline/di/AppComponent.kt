@@ -23,6 +23,7 @@ import javax.inject.Singleton
         DelegateModule::class,
         // domain
         UseCaseModule::class,
+        // data
         RepositoryModule::class,
         NetworkModule::class
     ]
