@@ -11,13 +11,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:theme="@style/Theme.TimeLine.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/gradation"
                 app:popupTheme="@style/Theme.TimeLine.PopupOverlay">
 
                 <ImageView
@@ -26,7 +26,7 @@
                     android:contentDescription="@string/monster_ball"
                     android:gravity="center_vertical"
                     android:src="@drawable/fit_xy_menu_icon"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/white_bg"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 

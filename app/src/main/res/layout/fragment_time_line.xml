@@ -11,13 +11,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:theme="@style/Theme.TimeLine.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/gradation"
                 app:popupTheme="@style/Theme.TimeLine.PopupOverlay">
 
                 <ImageView
@@ -26,7 +26,6 @@
                     android:contentDescription="@string/monster_ball"
                     android:gravity="center_vertical"
                     android:src="@drawable/fit_xy_menu_icon"
-                    android:textColor="@color/gray"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -51,13 +50,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/white_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:tabGravity="center"
+                app:tabTextColor="@color/white_bg"
                 app:tabIndicatorColor="@android:color/holo_red_light"
                 app:tabIndicatorHeight="4dp"
                 app:tabMode="scrollable" />
@@ -75,7 +74,7 @@
                 android:id="@+id/view_pager"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/white_bg"
+                android:background="@color/gray1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

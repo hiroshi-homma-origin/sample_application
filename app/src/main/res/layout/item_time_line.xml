@@ -21,7 +21,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="185dp"
         android:layout_height="230dp"
-        android:background="@color/white_bg">
+        android:background="@color/gray1">
 
         <ImageView
             android:id="@+id/main_image"
@@ -48,8 +48,8 @@
             android:text="@{timeLine.name}"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             android:layout_margin="4dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/main_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toTopOf="@+id/main_image"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="ContentDescription"
-            tools:textColor="@color/black"
+            tools:textColor="@color/white"
             tools:text="TestTitle" />
 
         <ImageView
@@ -88,6 +88,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:visibility="gone"
+            android:textColor="@color/white"
             visibleGone="@{!timeLine.numLikes.isEmpty}"
             android:text="@{timeLine.numLikes}"
             app:drawableStartCompat="@drawable/fit_xy_icon_like"
@@ -112,6 +113,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:visibility="gone"
+            android:textColor="@color/white"
             visibleGone="@{!timeLine.numComments.isEmpty}"
             android:text="@{timeLine.numComments}"
             app:drawableStartCompat="@drawable/fit_xy_icon_comment"
@@ -137,6 +139,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

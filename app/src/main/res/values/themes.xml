@@ -38,5 +38,7 @@
 
     <style name="Theme.TimeLine.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.TimeLine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.TimeLine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@color/gray</item>
+    </style>
 </resources>
