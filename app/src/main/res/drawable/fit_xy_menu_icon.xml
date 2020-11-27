@@ -2,10 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:width="48dp"
-        android:height="48dp"
+        android:width="42dp"
+        android:height="42dp"
         tools:ignore="UnusedAttribute">
         <bitmap
-            android:src="@drawable/logo" />
+            android:src="@drawable/monster_ball_logo" />
     </item>
 </layer-list>

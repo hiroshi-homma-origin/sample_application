@@ -3,10 +3,4 @@
     <item>
         <color android:color="@color/gray1"/>
     </item>
-    <item>
-        <bitmap
-            android:src="@drawable/bg_splash"
-            android:tileMode="disabled"
-            android:gravity="center"/>
-    </item>
 </layer-list>

@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">TimeLineApp</string>
-    <string name="toolbar_title">Time Line Application</string>
+    <string name="app_name">ポケモン図鑑</string>
     <string name="submit">Submit</string>
     <!-- Strings used for fragments for navigation -->
     <string name="fragment_check_message_dialog">CheckMessageDialog</string>
@@ -10,4 +9,6 @@
     <string name="fragment_label_women">Women</string>
     <string name="fragment_label_detail">Detail</string>
     <string name="detailText">DetailText</string>
+    <string name="monster_ball">TODO</string>
+    <string name="header_title">TODO</string>
 </resources>

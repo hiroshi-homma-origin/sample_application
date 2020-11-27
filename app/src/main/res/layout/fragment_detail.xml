@@ -20,16 +20,15 @@
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/Theme.TimeLine.PopupOverlay">
 
-                <TextView
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:drawablePadding="8dp"
+                    android:contentDescription="@string/monster_ball"
                     android:gravity="center_vertical"
-                    android:text="@string/toolbar_title"
+                    android:src="@drawable/fit_xy_menu_icon"
                     android:textColor="@color/gray"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/fit_xy_menu_icon" />
+                    android:textStyle="bold" />
 
             </androidx.appcompat.widget.Toolbar>
 

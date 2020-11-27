@@ -61,11 +61,12 @@
             tools:text="TestTitle" />
 
         <ImageView
-            android:id="@+id/sold_out"
-            android:layout_width="120dp"
-            android:layout_height="70dp"
+            android:id="@+id/typeB"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/badge_soldout"
+            android:src="@drawable/monster_ball_logo"
             android:visibility="gone"
             visibleGone="@{isSoldOut}"
             app:layout_constraintBottom_toBottomOf="@+id/main_image"
