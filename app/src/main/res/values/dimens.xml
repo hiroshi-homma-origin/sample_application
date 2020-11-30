@@ -1,3 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="span_1_img_height_size">320dp</dimen>
+    <dimen name="span_2_img_height_size">150dp</dimen>
+    <dimen name="span_3_img_height_size">125dp</dimen>
 </resources>

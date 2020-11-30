@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.timeline.ui.timeline.dataA.DataAViewModel" />
+            type="com.example.timeline.ui.timeline.third.ThirdViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,11 +30,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:padding="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:padding="5dp"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

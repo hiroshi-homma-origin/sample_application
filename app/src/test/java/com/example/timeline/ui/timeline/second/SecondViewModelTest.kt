@@ -1,4 +1,4 @@
-package com.example.timeline.ui.timeline.all
+package com.example.timeline.ui.timeline.second
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.timeline.MainApplication
@@ -18,13 +18,13 @@ import org.junit.Rule
 import org.junit.Test
 
 @Suppress("TestFunctionName")
-class AllViewModelTest {
+class SecondViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @InjectMockKs
-    lateinit var viewModel: AllViewModel
+    lateinit var viewModel: SecondViewModel
 
     @RelaxedMockK
     lateinit var application: MainApplication
@@ -40,7 +40,7 @@ class AllViewModelTest {
     @Test
     fun `Successful acquisition of data_データの取得に成功`() {
         // arrange
-        val path = "all.json"
+        val path = "dataA.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -62,7 +62,7 @@ class AllViewModelTest {
     @Test
     fun `Failed to get data_データの取得に失敗`() {
         // arrange
-        val path = "all.json"
+        val path = "dataA.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -84,7 +84,7 @@ class AllViewModelTest {
     @Test
     fun `Successful refresh of data_データの更新に成功`() {
         // arrange
-        val path = "all.json"
+        val path = "dataA.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -107,7 +107,7 @@ class AllViewModelTest {
     @Test
     fun `Failed to refresh data_データの取得に失敗`() {
         // arrange
-        val path = "all.json"
+        val path = "dataA.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)

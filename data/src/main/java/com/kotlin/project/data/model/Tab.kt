@@ -1,7 +1,7 @@
 package com.kotlin.project.data.model
 
 enum class Tab(val displayName: String, val path: String) {
-    DATA_A("DataA", "dataA.json"),
-    ALL("All", "all.json"),
-    DATA_B("DataB", "dataB.json")
+    FIRST("第1世代", "first.json"),
+    SECOND("第2世代", "second.json"),
+    THIRD("第3世代", "third.json")
 }

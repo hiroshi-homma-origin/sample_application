@@ -3,9 +3,9 @@ package com.example.timeline.di
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.example.timeline.ui.detail.DetailFragment
-import com.example.timeline.ui.timeline.all.AllFragment
-import com.example.timeline.ui.timeline.dataA.DataAFragment
-import com.example.timeline.ui.timeline.dataB.DataBFragment
+import com.example.timeline.ui.timeline.first.FirstFragment
+import com.example.timeline.ui.timeline.second.SecondFragment
+import com.example.timeline.ui.timeline.third.ThirdFragment
 import com.example.timeline.ui.timeline.timeline.TimeLineFragment
 import dagger.Binds
 import dagger.Module
@@ -19,18 +19,18 @@ interface FragmentModule {
 
     @Binds
     @IntoMap
-    @FragmentKey(AllFragment::class)
-    fun provideAllFragment(fragment: AllFragment): Fragment
+    @FragmentKey(FirstFragment::class)
+    fun provideFirstFragment(fragment: FirstFragment): Fragment
 
     @Binds
     @IntoMap
-    @FragmentKey(DataAFragment::class)
-    fun provideDataAFragment(fragment: DataAFragment): Fragment
+    @FragmentKey(SecondFragment::class)
+    fun provideSecondFragment(fragment: SecondFragment): Fragment
 
     @Binds
     @IntoMap
-    @FragmentKey(DataBFragment::class)
-    fun provideDataBFragment(fragment: DataBFragment): Fragment
+    @FragmentKey(ThirdFragment::class)
+    fun provideThirdFragment(fragment: ThirdFragment): Fragment
 
     @Binds
     @IntoMap

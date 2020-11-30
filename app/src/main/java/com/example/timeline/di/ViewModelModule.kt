@@ -3,9 +3,9 @@ package com.example.timeline.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.timeline.ui.detail.DetailViewModel
-import com.example.timeline.ui.timeline.all.AllViewModel
-import com.example.timeline.ui.timeline.dataA.DataAViewModel
-import com.example.timeline.ui.timeline.dataB.DataBViewModel
+import com.example.timeline.ui.timeline.first.FirstViewModel
+import com.example.timeline.ui.timeline.second.SecondViewModel
+import com.example.timeline.ui.timeline.third.ThirdViewModel
 import com.example.timeline.ui.timeline.timeline.TimeLineViewModel
 import dagger.Binds
 import dagger.Module
@@ -19,18 +19,18 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(AllViewModel::class)
-    fun provideAllViewModel(viewModel: AllViewModel): ViewModel
+    @ViewModelKey(FirstViewModel::class)
+    fun provideFirstViewModel(viewModel: FirstViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(DataAViewModel::class)
-    fun provideMenViewModel(viewModel: DataAViewModel): ViewModel
+    @ViewModelKey(SecondViewModel::class)
+    fun provideSecondViewModel(viewModel: SecondViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(DataBViewModel::class)
-    fun provideWomenViewModel(viewModel: DataBViewModel): ViewModel
+    @ViewModelKey(ThirdViewModel::class)
+    fun provideThirdViewModel(viewModel: ThirdViewModel): ViewModel
 
     @Binds
     @IntoMap
