@@ -40,7 +40,7 @@ class TimeLineFragment @Inject constructor() : Fragment() {
     ): View? {
         val currentNumber =
             savedInstanceState?.getInt(EXTRA_KEY_CURRENT_NUMBER)
-                ?: (viewModel.currentTabNumber.value ?: 1)
+                ?: (viewModel.currentTabNumber.value ?: 0)
         _binding = FragmentTimeLineBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             settingViewPager(tab, viewPager, currentNumber)

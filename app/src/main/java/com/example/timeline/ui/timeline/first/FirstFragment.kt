@@ -1,4 +1,4 @@
-package com.example.timeline.ui.timeline.dataB
+package com.example.timeline.ui.timeline.first
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -13,26 +13,26 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.timeline.databinding.FragmentDataBBinding
+import com.example.timeline.databinding.FragmentFirstBinding
 import com.example.timeline.ui.adapter.RecyclerViewAdapter
 import javax.inject.Inject
 
-class DataBFragment @Inject constructor(
-    private val factory: ViewModelProvider.Factory
+class FirstFragment @Inject constructor(
+    factory: ViewModelProvider.Factory
 ) : Fragment() {
 
     companion object {
         private const val EXTRA_KEY_PATH = "path"
         fun newInstance(factory: ViewModelProvider.Factory, path: String) =
-            DataBFragment(factory).apply {
+            FirstFragment(factory).apply {
                 arguments = bundleOf(
                     EXTRA_KEY_PATH to path
                 )
             }
     }
 
-    private val dataBViewModel: DataBViewModel by viewModels { factory }
-    private var _binding: FragmentDataBBinding? = null
+    private val firstViewModel: FirstViewModel by viewModels { factory }
+    private var _binding: FragmentFirstBinding? = null
     private val binding get() = requireNotNull(_binding)
     private var path: String = ""
 
@@ -42,15 +42,15 @@ class DataBFragment @Inject constructor(
         savedInstanceState: Bundle?
     ): View? {
         path = arguments?.getString(EXTRA_KEY_PATH, "") ?: ""
-        _binding = FragmentDataBBinding.inflate(inflater, container, false).apply {
-            viewModel = this@DataBFragment.dataBViewModel
+        _binding = FragmentFirstBinding.inflate(inflater, container, false).apply {
+            viewModel = this@FirstFragment.firstViewModel
             lifecycleOwner = viewLifecycleOwner
             settingRecyclerView(recyclerView)
         }
-        lifecycle.addObserver(dataBViewModel)
-        if (!dataBViewModel.screenHasRotated) {
-            dataBViewModel.setPath(path)
-            dataBViewModel.screenHasRotated = true
+        lifecycle.addObserver(firstViewModel)
+        if (!firstViewModel.screenHasRotated) {
+            firstViewModel.setPath(path)
+            firstViewModel.screenHasRotated = true
         }
         observe()
         return binding.root
@@ -60,7 +60,7 @@ class DataBFragment @Inject constructor(
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             this.swipeRefresh.setOnRefreshListener {
-                dataBViewModel.onRefresh()
+                firstViewModel.onRefresh()
             }
         }
     }
@@ -76,8 +76,8 @@ class DataBFragment @Inject constructor(
     }
 
     private fun observe() {
-        dataBViewModel.list.observe(viewLifecycleOwner) { list ->
-            binding.recyclerView.adapter = RecyclerViewAdapter(list, parentFragment)
+        firstViewModel.list.observe(viewLifecycleOwner) { list ->
+            binding.recyclerView.adapter = RecyclerViewAdapter(list, parentFragment, firstViewModel.spanCount)
         }
     }
 
@@ -85,16 +85,27 @@ class DataBFragment @Inject constructor(
         recyclerView.setHasFixedSize(true)
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             val gridLayoutManagerVertical =
-                GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
-            gridLayoutManagerVertical.spanCount = 2
+                GridLayoutManager(
+                    requireContext(),
+                    firstViewModel.spanCount,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+            gridLayoutManagerVertical.spanCount = firstViewModel.spanCount
             recyclerView.layoutManager = gridLayoutManagerVertical
         } else {
             val gridLayoutManagerVertical =
-                GridLayoutManager(requireContext(), 4, LinearLayoutManager.VERTICAL, false)
-            gridLayoutManagerVertical.spanCount = 4
+                GridLayoutManager(
+                    requireContext(),
+                    firstViewModel.spanCount * 2,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+            gridLayoutManagerVertical.spanCount = firstViewModel.spanCount * 2
             recyclerView.layoutManager = gridLayoutManagerVertical
         }
         // Challenge Imp (androidx.recyclerview:recyclerview:1.2.0-alpha06)
-        recyclerView.adapter?.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        recyclerView.adapter?.stateRestorationPolicy =
+            RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
     }
 }

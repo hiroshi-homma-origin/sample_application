@@ -1,4 +1,4 @@
-package com.example.timeline.ui.timeline.dataA
+package com.example.timeline.ui.timeline.first
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -14,11 +14,12 @@ import com.kotlin.project.domain.usecase.GetTimeLineListUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class DataAViewModel @Inject constructor(
+class FirstViewModel @Inject constructor(
     application: Application,
     private val getTimeLineListUseCase: GetTimeLineListUseCase
 ) : AndroidViewModel(application), LifecycleObserver {
 
+    var spanCount = 3
     var screenHasRotated: Boolean = false
 
     private val _timeLineStatus = MutableLiveData<TimeLineStatus>()

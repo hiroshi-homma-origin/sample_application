@@ -13,7 +13,8 @@ import com.kotlin.project.data.model.TimeLineData
 
 class RecyclerViewAdapter(
     private val list: List<TimeLineData>,
-    private val parentFragment: Fragment?
+    private val parentFragment: Fragment?,
+    private val spanCount: Int
 ) : RecyclerView.Adapter<RecyclerViewAdapter.TimeLineHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineHolder {
@@ -39,8 +40,15 @@ class RecyclerViewAdapter(
             )
         }
         holder.binding.timeLine = list[position]
-        holder.binding.isSoldOut = list[position].status == "typeB"
-        holder.binding.priceText = "$ ${list[position].price}"
+        holder.binding.isStatus = list[position].status == "typeB"
+        holder.binding.imgWidth = when(spanCount){
+            3 -> 125
+            else -> 150
+        }
+        holder.binding.imgHeight = when(spanCount){
+            3 -> 125
+            else -> 150
+        }
     }
 
     class TimeLineHolder(val binding: ItemTimeLineBinding) : RecyclerView.ViewHolder(binding.root)
