@@ -2,7 +2,7 @@ package com.example.timeline.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.timeline.ui.detail.DetailViewModel
+import com.example.timeline.ui.detail.SpritesViewModel
 import com.example.timeline.ui.timeline.first.FirstViewModel
 import com.example.timeline.ui.timeline.fourth.FourthViewModel
 import com.example.timeline.ui.timeline.second.SecondViewModel
@@ -45,6 +45,6 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DetailViewModel::class)
-    fun provideDetailViewModel(viewModel: DetailViewModel): ViewModel
+    @ViewModelKey(SpritesViewModel::class)
+    fun provideSpritesViewModel(viewModel: SpritesViewModel): ViewModel
 }

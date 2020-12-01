@@ -16,21 +16,21 @@
         android:label="@string/fragment_label_time_line"
         tools:layout="@layout/fragment_time_line">
         <action
-            android:id="@+id/action_timeLine_to_detail"
-            app:destination="@id/DetailFragment" />
+            android:id="@+id/action_timeLine_to_sprites"
+            app:destination="@id/SpritesFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/DetailFragment"
-        android:name="com.example.timeline.ui.detail.DetailFragment"
+        android:id="@+id/SpritesFragment"
+        android:name="com.example.timeline.ui.detail.SpritesFragment"
         android:label="@string/fragment_label_detail"
-        tools:layout="@layout/fragment_detail">
+        tools:layout="@layout/fragment_sprites">
         <argument
             android:name="number"
             app:argType="integer"/>
         <action
-            android:id="@+id/action_detail_to_detail"
-            app:destination="@id/DetailFragment" />
+            android:id="@+id/action_sprites_to_sprites"
+            app:destination="@id/SpritesFragment" />
     </fragment>
 
     <action android:id="@+id/action_global_CheckMessageDialog"

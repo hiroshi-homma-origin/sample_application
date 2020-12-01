@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.timeline.ui.detail.DetailViewModel" />
+            type="com.example.timeline.ui.detail.SpritesViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

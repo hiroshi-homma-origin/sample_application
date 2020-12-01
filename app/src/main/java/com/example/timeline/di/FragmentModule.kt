@@ -2,7 +2,7 @@ package com.example.timeline.di
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.example.timeline.ui.detail.DetailFragment
+import com.example.timeline.ui.detail.SpritesFragment
 import com.example.timeline.ui.timeline.first.FirstFragment
 import com.example.timeline.ui.timeline.fourth.FourthFragment
 import com.example.timeline.ui.timeline.second.SecondFragment
@@ -45,6 +45,6 @@ interface FragmentModule {
 
     @Binds
     @IntoMap
-    @FragmentKey(DetailFragment::class)
-    fun provideDetailFragment(fragment: DetailFragment): Fragment
+    @FragmentKey(SpritesFragment::class)
+    fun provideSpritesFragment(fragment: SpritesFragment): Fragment
 }

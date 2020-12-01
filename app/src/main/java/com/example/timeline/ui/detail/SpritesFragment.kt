@@ -12,39 +12,43 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.timeline.databinding.FragmentDetailBinding
-import com.example.timeline.ui.adapter.DetailRecyclerViewAdapter
-import timber.log.Timber
+import com.example.timeline.databinding.FragmentSpritesBinding
+import com.example.timeline.ui.adapter.SpritesRecyclerViewAdapter
 import javax.inject.Inject
 
-class DetailFragment @Inject constructor() : Fragment() {
+class SpritesFragment @Inject constructor() : Fragment() {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
-    private val detailViewModel: DetailViewModel by viewModels { factory }
-    private var _binding: FragmentDetailBinding? = null
+    private val spritesViewModel: SpritesViewModel by viewModels { factory }
+    private var _binding: FragmentSpritesBinding? = null
     private val binding get() = requireNotNull(_binding)
 
-    private val args: DetailFragmentArgs by navArgs()
+    private val args: SpritesFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDetailBinding.inflate(inflater, container, false).apply {
-            lifecycleOwner = this@DetailFragment
+        _binding = FragmentSpritesBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = this@SpritesFragment
             settingRecyclerView(recyclerView)
         }
-        lifecycle.addObserver(detailViewModel)
-        observe()
+        lifecycle.addObserver(spritesViewModel)
+        if (!spritesViewModel.screenHasRotated) {
+            observe()
+            spritesViewModel.screenHasRotated = true
+        }
         return binding.root
     }
 
     private fun observe() {
-        detailViewModel.pokeList().observe(viewLifecycleOwner) {
-            Timber.d("check_test1:${it.size}")
-            binding.recyclerView.adapter = DetailRecyclerViewAdapter(it, parentFragment, detailViewModel.spanCount)
+        spritesViewModel.pokeList().observe(viewLifecycleOwner) {
+            if (spritesViewModel.pList.isEmpty()) {
+                spritesViewModel.pList = it
+                binding.recyclerView.adapter = SpritesRecyclerViewAdapter(spritesViewModel, parentFragment)
+            }
         }
     }
 
@@ -52,9 +56,14 @@ class DetailFragment @Inject constructor() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             swipeRefresh.setOnRefreshListener {
-                detailViewModel.onRefresh()
+                spritesViewModel.onRefresh()
                 swipeRefresh.isRefreshing = false
             }
+            recyclerView.adapter =
+                SpritesRecyclerViewAdapter(
+                    spritesViewModel,
+                    parentFragment
+                )
         }
     }
 
@@ -68,21 +77,21 @@ class DetailFragment @Inject constructor() : Fragment() {
             val gridLayoutManagerVertical =
                 GridLayoutManager(
                     requireContext(),
-                    detailViewModel.spanCount,
+                    spritesViewModel.spanCount,
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            gridLayoutManagerVertical.spanCount = detailViewModel.spanCount
+            gridLayoutManagerVertical.spanCount = spritesViewModel.spanCount
             recyclerView.layoutManager = gridLayoutManagerVertical
         } else {
             val gridLayoutManagerVertical =
                 GridLayoutManager(
                     requireContext(),
-                    detailViewModel.spanCount * 2,
+                    spritesViewModel.spanCount * 2,
                     LinearLayoutManager.VERTICAL,
                     false
                 )
-            gridLayoutManagerVertical.spanCount = detailViewModel.spanCount * 2
+            gridLayoutManagerVertical.spanCount = spritesViewModel.spanCount * 2
             recyclerView.layoutManager = gridLayoutManagerVertical
         }
         // Challenge Imp (androidx.recyclerview:recyclerview:1.2.0-alpha06)

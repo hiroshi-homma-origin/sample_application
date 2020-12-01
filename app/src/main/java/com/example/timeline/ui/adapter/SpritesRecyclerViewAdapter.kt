@@ -8,14 +8,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.R
 import com.example.timeline.databinding.ItemDetailItemBinding
-import com.example.timeline.ui.detail.DetailFragmentDirections.actionDetailToDetail
-import com.kotlin.project.data.model.Results
+import com.example.timeline.ui.detail.SpritesFragmentDirections.actionSpritesToSprites
+import com.example.timeline.ui.detail.SpritesViewModel
 
-class DetailRecyclerViewAdapter(
-    private val results: List<Results>,
-    private val parentFragment: Fragment?,
-    private val spanCount: Int
-) : RecyclerView.Adapter<DetailRecyclerViewAdapter.TimeLineHolder>() {
+class SpritesRecyclerViewAdapter(
+    private val spritesViewModel: SpritesViewModel,
+    private val parentFragment: Fragment?
+) : RecyclerView.Adapter<SpritesRecyclerViewAdapter.TimeLineHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineHolder {
         val binding = DataBindingUtil.inflate<ItemDetailItemBinding>(
@@ -30,21 +29,21 @@ class DetailRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        return results.size
+        return spritesViewModel.pList.size
     }
 
     override fun onBindViewHolder(holder: TimeLineHolder, position: Int) {
         holder.binding.root.setOnClickListener {
             parentFragment?.findNavController()?.navigate(
-                actionDetailToDetail(position)
+                actionSpritesToSprites(position)
             )
         }
-        holder.binding.result = results[position]
-        holder.binding.imgWidth = when (spanCount) {
+        holder.binding.result = spritesViewModel.pList[position]
+        holder.binding.imgWidth = when (spritesViewModel.spanCount) {
             3 -> 125
             else -> 150
         }
-        holder.binding.imgHeight = when (spanCount) {
+        holder.binding.imgHeight = when (spritesViewModel.spanCount) {
             3 -> 125
             else -> 150
         }

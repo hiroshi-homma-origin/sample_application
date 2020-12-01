@@ -10,12 +10,15 @@ import com.kotlin.project.data.model.TimeLineStatus
 import com.kotlin.project.domain.usecase.GetPokeListUseCase
 import javax.inject.Inject
 
-class DetailViewModel @Inject constructor(
+class SpritesViewModel @Inject constructor(
     application: Application,
     private val getPokeListUseCase: GetPokeListUseCase
 ) : AndroidViewModel(application), LifecycleObserver {
 
     var spanCount = 3
+    var screenHasRotated: Boolean = false
+
+    var pList: List<Results> = listOf()
 
     private val _timeLineStatus = MutableLiveData<TimeLineStatus>()
     val timeLineStatus: LiveData<TimeLineStatus> = _timeLineStatus

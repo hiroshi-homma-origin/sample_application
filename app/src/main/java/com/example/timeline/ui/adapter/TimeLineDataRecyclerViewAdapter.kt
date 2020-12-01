@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.R
 import com.example.timeline.databinding.ItemTimeLineBinding
-import com.example.timeline.ui.timeline.timeline.TimeLineFragmentDirections.actionTimeLineToDetail
+import com.example.timeline.ui.timeline.timeline.TimeLineFragmentDirections.actionTimeLineToSprites
 import com.kotlin.project.data.model.TimeLineData
 
 class TimeLineDataRecyclerViewAdapter(
@@ -36,7 +36,7 @@ class TimeLineDataRecyclerViewAdapter(
     override fun onBindViewHolder(holder: TimeLineHolder, position: Int) {
         holder.binding.root.setOnClickListener {
             parentFragment?.findNavController()?.navigate(
-                actionTimeLineToDetail(position)
+                actionTimeLineToSprites(position)
             )
         }
         holder.binding.timeLine = list[position]

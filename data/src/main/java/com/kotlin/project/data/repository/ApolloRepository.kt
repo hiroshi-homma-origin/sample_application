@@ -17,7 +17,7 @@ interface ApolloRepository {
 }
 
 class ApolloRepositoryImpl @Inject constructor() : ApolloRepository {
-    val mList = mutableListOf<Results>()
+    var mList = mutableListOf<Results>()
     val mLiveData: MutableLiveData<List<Results>> = MutableLiveData()
 
     override fun pokeList(limit: Int, offset: Int): MutableLiveData<List<Results>> {
@@ -32,9 +32,10 @@ class ApolloRepositoryImpl @Inject constructor() : ApolloRepository {
 
                     override fun onResponse(response: Response<PokemonListQuery.Data>) {
                         // Success
-                        if (mList.size > 0) { mList.removeAll(mList) }
-                        response.data?.pokemons()?.results()?.map {
-                            mList.add(it.transform())
+                        if (mList.size == 0) {
+                            response.data?.pokemons()?.results()?.map {
+                                mList.add(it.transform())
+                            }
                         }
                         Timber.d("checkCheckCallBackSuccess1:${mList.size}")
                         mLiveData.postValue(mList)
