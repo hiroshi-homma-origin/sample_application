@@ -52,25 +52,33 @@ class GetTimeLineListRepositoryTest {
     }
 
     @Test
-    fun testGetTimeLineListSizeCheck_All() = runBlocking {
-        val path = "all.json"
-        val checkSize = 150
+    fun testGetTimeLineListSizeCheck_First() = runBlocking {
+        val path = "first.json"
+        val checkSize = 151
         val r = GetTimeLineListRepositoryImpl(timeLineApi)
         assert(r.getTimeLineList(path).size == checkSize)
     }
 
     @Test
-    fun testGetTimeLineListSizeCheck_Men() = runBlocking {
-        val path = "men.json"
-        val checkSize = 50
+    fun testGetTimeLineListSizeCheck_Second() = runBlocking {
+        val path = "second.json"
+        val checkSize = 100
         val r = GetTimeLineListRepositoryImpl(timeLineApi)
         assert(r.getTimeLineList(path).size == checkSize)
     }
 
     @Test
-    fun testGetTimeLineListSizeCheck_Women() = runBlocking {
-        val path = "women.json"
-        val checkSize = 50
+    fun testGetTimeLineListSizeCheck_Third() = runBlocking {
+        val path = "third.json"
+        val checkSize = 135
+        val r = GetTimeLineListRepositoryImpl(timeLineApi)
+        assert(r.getTimeLineList(path).size == checkSize)
+    }
+
+    @Test
+    fun testGetTimeLineListSizeCheck_Fourth() = runBlocking {
+        val path = "fourth.json"
+        val checkSize = 106
         val r = GetTimeLineListRepositoryImpl(timeLineApi)
         assert(r.getTimeLineList(path).size == checkSize)
     }
