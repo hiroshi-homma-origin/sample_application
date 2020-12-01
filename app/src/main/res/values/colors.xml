@@ -12,4 +12,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_bg">#FFF9F9F9</color>
     <color name="image_bg">#FF1f212d</color>
+    <color name="ripple">#FFFF4444</color>
 </resources>

@@ -30,6 +30,13 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/header_title"
+                    android:gravity="center"
+                    android:src="@drawable/pokedex_title" />
+
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>

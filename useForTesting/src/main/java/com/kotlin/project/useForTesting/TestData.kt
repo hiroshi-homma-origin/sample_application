@@ -12,11 +12,11 @@ object TestData {
     private fun dummyTimeLine(id: Int) = TimeLineData(
         id = id.toString(),
         name = "test",
-        status = "on_sale", // sold_out
+        status = "typeB",
         numLikes = "999",
         numComments = "999",
         price = "20",
-        photo = "https://dummyimage.com/400x400/000/fff?text=men1"
+        photo = "http://tk2-246-32569.vs.sakura.ne.jp/images/001.png"
     )
 
     val dummyMasterEmptyList: List<Master> = listOf()
@@ -25,15 +25,15 @@ object TestData {
     private fun dummyMaster(id: Int) = Master(
         name = Tab.values()[id].displayName,
         data = when (id) {
-            1 -> "http://tk2-246-32569.vs.sakura.ne.jp/json/dataA.json"
-            2 -> "http://tk2-246-32569.vs.sakura.ne.jp/json/dataB.json"
-            else -> "http://tk2-246-32569.vs.sakura.ne.jp/json/all.json"
+            1 -> "http://tk2-246-32569.vs.sakura.ne.jp/json/second.json"
+            2 -> "http://tk2-246-32569.vs.sakura.ne.jp/json/third.json"
+            else -> "http://tk2-246-32569.vs.sakura.ne.jp/json/first.json"
         }
     )
 
     val dummyMasterList2: List<Master> = listOf(
-        Master(name = "All", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/all.json"),
-        Master(name = "DataA", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/dataA.json"),
-        Master(name = "DataB", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/dataB.json")
+        Master(name = "FIRST", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/first.json"),
+        Master(name = "SECOND", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/second.json"),
+        Master(name = "THIRD", data = "http://tk2-246-32569.vs.sakura.ne.jp/json/third.json")
     )
 }

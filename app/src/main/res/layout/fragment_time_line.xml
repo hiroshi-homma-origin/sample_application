@@ -88,11 +88,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:backgroundTint="@android:color/holo_red_light"
             android:contentDescription="@string/submit"
-            android:src="@drawable/ic_camera"
+            android:src="@drawable/monster_ball2"
+            app:maxImageSize="57dp"
             app:borderWidth="0dp"
-            app:tint="@color/white" />
+            app:tint="@null" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

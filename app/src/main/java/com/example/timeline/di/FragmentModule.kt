@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentFactory
 import com.example.timeline.ui.detail.DetailFragment
 import com.example.timeline.ui.timeline.first.FirstFragment
 import com.example.timeline.ui.timeline.second.SecondFragment
+import com.example.timeline.ui.timeline.fourth.FourthFragment
 import com.example.timeline.ui.timeline.third.ThirdFragment
 import com.example.timeline.ui.timeline.timeline.TimeLineFragment
 import dagger.Binds
@@ -31,6 +32,11 @@ interface FragmentModule {
     @IntoMap
     @FragmentKey(ThirdFragment::class)
     fun provideThirdFragment(fragment: ThirdFragment): Fragment
+
+    @Binds
+    @IntoMap
+    @FragmentKey(FourthFragment::class)
+    fun provideFourthFragment(fragment: FourthFragment): Fragment
 
     @Binds
     @IntoMap

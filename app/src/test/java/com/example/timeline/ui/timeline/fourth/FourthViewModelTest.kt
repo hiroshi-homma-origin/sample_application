@@ -1,8 +1,9 @@
-package com.example.timeline.ui.timeline.first
+package com.example.timeline.ui.timeline.fourth
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.timeline.MainApplication
 import com.example.timeline.ui.timeline.TestObserver
+import com.example.timeline.ui.timeline.fourth.FourthViewModel
 import com.kotlin.project.data.model.Result
 import com.kotlin.project.data.model.TimeLineData
 import com.kotlin.project.data.model.TimeLineError
@@ -18,13 +19,13 @@ import org.junit.Rule
 import org.junit.Test
 
 @Suppress("TestFunctionName")
-class FirstViewModelTest {
+class FourthViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @InjectMockKs
-    lateinit var viewModel: FirstViewModel
+    lateinit var viewModel: FourthViewModel
 
     @RelaxedMockK
     lateinit var application: MainApplication
@@ -40,7 +41,7 @@ class FirstViewModelTest {
     @Test
     fun `Successful acquisition of data_データの取得に成功`() {
         // arrange
-        val path = "first.json"
+        val path = "fourth.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -62,7 +63,7 @@ class FirstViewModelTest {
     @Test
     fun `Failed to get data_データの取得に失敗`() {
         // arrange
-        val path = "first.json"
+        val path = "fourth.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -84,7 +85,7 @@ class FirstViewModelTest {
     @Test
     fun `Successful refresh of data_データの更新に成功`() {
         // arrange
-        val path = "first.json"
+        val path = "fourth.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -107,7 +108,7 @@ class FirstViewModelTest {
     @Test
     fun `Failed to refresh data_データの取得に失敗`() {
         // arrange
-        val path = "first.json"
+        val path = "fourth.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)

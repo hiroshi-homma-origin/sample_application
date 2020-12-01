@@ -40,7 +40,7 @@ class SecondViewModelTest {
     @Test
     fun `Successful acquisition of data_データの取得に成功`() {
         // arrange
-        val path = "dataA.json"
+        val path = "second.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -62,7 +62,7 @@ class SecondViewModelTest {
     @Test
     fun `Failed to get data_データの取得に失敗`() {
         // arrange
-        val path = "dataA.json"
+        val path = "second.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -84,7 +84,7 @@ class SecondViewModelTest {
     @Test
     fun `Successful refresh of data_データの更新に成功`() {
         // arrange
-        val path = "dataA.json"
+        val path = "second.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)
@@ -107,7 +107,7 @@ class SecondViewModelTest {
     @Test
     fun `Failed to refresh data_データの取得に失敗`() {
         // arrange
-        val path = "dataA.json"
+        val path = "second.json"
         val observerList = TestObserver<List<TimeLineData>>()
         val observerStatus = TestObserver<TimeLineStatus>()
         viewModel.list.observeForever(observerList)

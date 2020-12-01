@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.timeline.ui.detail.DetailViewModel
 import com.example.timeline.ui.timeline.first.FirstViewModel
 import com.example.timeline.ui.timeline.second.SecondViewModel
+import com.example.timeline.ui.timeline.fourth.FourthViewModel
 import com.example.timeline.ui.timeline.third.ThirdViewModel
 import com.example.timeline.ui.timeline.timeline.TimeLineViewModel
 import dagger.Binds
@@ -31,6 +32,11 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(ThirdViewModel::class)
     fun provideThirdViewModel(viewModel: ThirdViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FourthViewModel::class)
+    fun provideFourthViewModel(viewModel: FourthViewModel): ViewModel
 
     @Binds
     @IntoMap
