@@ -82,7 +82,8 @@ class ThirdFragment @Inject constructor(
                 parentFragment,
                 thirdViewModel.spanCount,
                 134,
-                252)
+                252
+            )
         }
     }
 

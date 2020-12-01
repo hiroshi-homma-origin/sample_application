@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.databinding.FragmentFourthBinding
 import com.example.timeline.ui.adapter.TimeLineDataRecyclerViewAdapter
-import com.example.timeline.ui.timeline.third.ThirdFragment
 import javax.inject.Inject
 
 class FourthFragment @Inject constructor(
