@@ -78,7 +78,7 @@ class GetTimeLineListRepositoryTest {
     @Test
     fun testGetTimeLineListSizeCheck_Fourth() = runBlocking {
         val path = "fourth.json"
-        val checkSize = 106
+        val checkSize = 107
         val r = GetTimeLineListRepositoryImpl(timeLineApi)
         assert(r.getTimeLineList(path).size == checkSize)
     }
