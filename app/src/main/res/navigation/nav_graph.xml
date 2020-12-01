@@ -28,6 +28,12 @@
         <argument
             android:name="number"
             app:argType="integer"/>
+        <argument
+            android:name="limit"
+            app:argType="integer"/>
+        <argument
+            android:name="offset"
+            app:argType="integer"/>
         <action
             android:id="@+id/action_sprites_to_sprites"
             app:destination="@id/SpritesFragment" />

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.databinding.FragmentSpritesBinding
 import com.example.timeline.ui.adapter.SpritesRecyclerViewAdapter
+import timber.log.Timber
 import javax.inject.Inject
 
 class SpritesFragment @Inject constructor() : Fragment() {
@@ -31,6 +32,9 @@ class SpritesFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Timber.d("check_args1:${args.number}")
+        Timber.d("check_args2:${args.limit}")
+        Timber.d("check_args3:${args.offset}")
         _binding = FragmentSpritesBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@SpritesFragment
             settingRecyclerView(recyclerView)
@@ -44,10 +48,18 @@ class SpritesFragment @Inject constructor() : Fragment() {
     }
 
     private fun observe() {
-        spritesViewModel.pokeList().observe(viewLifecycleOwner) {
-            if (spritesViewModel.pList.isEmpty()) {
+        spritesViewModel.pokeList(args.limit, args.offset).observe(viewLifecycleOwner) {
+            if (spritesViewModel.pList.isEmpty() ||
+                spritesViewModel.pList.size != it.size
+            ) {
                 spritesViewModel.pList = it
-                binding.recyclerView.adapter = SpritesRecyclerViewAdapter(spritesViewModel, parentFragment)
+                binding.recyclerView.adapter =
+                    SpritesRecyclerViewAdapter(
+                        spritesViewModel,
+                        parentFragment,
+                        args.limit,
+                        args.offset
+                    )
             }
         }
     }
@@ -56,13 +68,15 @@ class SpritesFragment @Inject constructor() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             swipeRefresh.setOnRefreshListener {
-                spritesViewModel.onRefresh()
+                spritesViewModel.onRefresh(args.limit, args.offset)
                 swipeRefresh.isRefreshing = false
             }
             recyclerView.adapter =
                 SpritesRecyclerViewAdapter(
                     spritesViewModel,
-                    parentFragment
+                    parentFragment,
+                    args.limit,
+                    args.offset
                 )
         }
     }
@@ -71,6 +85,7 @@ class SpritesFragment @Inject constructor() : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
     private fun settingRecyclerView(recyclerView: RecyclerView) {
         recyclerView.setHasFixedSize(true)
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {

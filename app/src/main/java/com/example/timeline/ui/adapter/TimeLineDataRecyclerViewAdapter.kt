@@ -14,7 +14,9 @@ import com.kotlin.project.data.model.TimeLineData
 class TimeLineDataRecyclerViewAdapter(
     private val list: List<TimeLineData>,
     private val parentFragment: Fragment?,
-    private val spanCount: Int
+    private val spanCount: Int,
+    private val limit: Int,
+    private val offset: Int
 ) : RecyclerView.Adapter<TimeLineDataRecyclerViewAdapter.TimeLineHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineHolder {
@@ -36,7 +38,7 @@ class TimeLineDataRecyclerViewAdapter(
     override fun onBindViewHolder(holder: TimeLineHolder, position: Int) {
         holder.binding.root.setOnClickListener {
             parentFragment?.findNavController()?.navigate(
-                actionTimeLineToSprites(position)
+                actionTimeLineToSprites(position, limit, offset)
             )
         }
         holder.binding.timeLine = list[position]

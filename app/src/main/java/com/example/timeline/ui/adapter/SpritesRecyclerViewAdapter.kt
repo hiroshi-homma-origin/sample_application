@@ -13,7 +13,9 @@ import com.example.timeline.ui.detail.SpritesViewModel
 
 class SpritesRecyclerViewAdapter(
     private val spritesViewModel: SpritesViewModel,
-    private val parentFragment: Fragment?
+    private val parentFragment: Fragment?,
+    private val limit: Int,
+    private val offset: Int
 ) : RecyclerView.Adapter<SpritesRecyclerViewAdapter.TimeLineHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineHolder {
@@ -35,7 +37,7 @@ class SpritesRecyclerViewAdapter(
     override fun onBindViewHolder(holder: TimeLineHolder, position: Int) {
         holder.binding.root.setOnClickListener {
             parentFragment?.findNavController()?.navigate(
-                actionSpritesToSprites(position)
+                actionSpritesToSprites(position, limit, offset)
             )
         }
         holder.binding.result = spritesViewModel.pList[position]

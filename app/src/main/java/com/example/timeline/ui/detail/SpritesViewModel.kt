@@ -23,11 +23,11 @@ class SpritesViewModel @Inject constructor(
     private val _timeLineStatus = MutableLiveData<TimeLineStatus>()
     val timeLineStatus: LiveData<TimeLineStatus> = _timeLineStatus
 
-    fun onRefresh() {
-        pokeList()
+    fun onRefresh(limit: Int, offset: Int) {
+        pokeList(limit, offset)
     }
 
-    fun pokeList(): LiveData<List<Results>> {
-        return getPokeListUseCase.pokeList(150, 1)
+    fun pokeList(limit: Int, offset: Int): LiveData<List<Results>> {
+        return getPokeListUseCase.pokeList(limit, offset)
     }
 }

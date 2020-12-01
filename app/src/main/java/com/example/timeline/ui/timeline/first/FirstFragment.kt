@@ -77,7 +77,14 @@ class FirstFragment @Inject constructor(
 
     private fun observe() {
         firstViewModel.list.observe(viewLifecycleOwner) { list ->
-            binding.recyclerView.adapter = TimeLineDataRecyclerViewAdapter(list, parentFragment, firstViewModel.spanCount)
+            binding.recyclerView.adapter =
+                TimeLineDataRecyclerViewAdapter(
+                    list,
+                    parentFragment,
+                    firstViewModel.spanCount,
+                    150,
+                    1
+                )
         }
     }
 

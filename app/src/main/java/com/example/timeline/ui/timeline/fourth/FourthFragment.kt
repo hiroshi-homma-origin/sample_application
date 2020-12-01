@@ -25,7 +25,7 @@ class FourthFragment @Inject constructor(
     companion object {
         private const val EXTRA_KEY_PATH = "path"
         fun newInstance(factory: ViewModelProvider.Factory, path: String) =
-            ThirdFragment(factory).apply {
+            FourthFragment(factory).apply {
                 arguments = bundleOf(
                     EXTRA_KEY_PATH to path
                 )
@@ -78,7 +78,13 @@ class FourthFragment @Inject constructor(
 
     private fun observe() {
         fourthViewModel.list.observe(viewLifecycleOwner) { list ->
-            binding.recyclerView.adapter = TimeLineDataRecyclerViewAdapter(list, parentFragment, fourthViewModel.spanCount)
+            binding.recyclerView.adapter = TimeLineDataRecyclerViewAdapter(
+                list,
+                parentFragment,
+                fourthViewModel.spanCount,
+                106,
+                387
+            )
         }
     }
 
