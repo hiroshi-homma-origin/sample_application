@@ -3,7 +3,6 @@ package com.example.timeline.ui.timeline.fourth
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.timeline.MainApplication
 import com.example.timeline.ui.timeline.TestObserver
-import com.example.timeline.ui.timeline.fourth.FourthViewModel
 import com.kotlin.project.data.model.Result
 import com.kotlin.project.data.model.TimeLineData
 import com.kotlin.project.data.model.TimeLineError

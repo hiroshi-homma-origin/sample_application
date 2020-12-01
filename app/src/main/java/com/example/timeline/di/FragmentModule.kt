@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.example.timeline.ui.detail.DetailFragment
 import com.example.timeline.ui.timeline.first.FirstFragment
-import com.example.timeline.ui.timeline.second.SecondFragment
 import com.example.timeline.ui.timeline.fourth.FourthFragment
+import com.example.timeline.ui.timeline.second.SecondFragment
 import com.example.timeline.ui.timeline.third.ThirdFragment
 import com.example.timeline.ui.timeline.timeline.TimeLineFragment
 import dagger.Binds

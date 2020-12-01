@@ -6,15 +6,12 @@ import com.kotlin.project.data.repository.GetPokeListRepository
 import javax.inject.Inject
 
 interface GetPokeListUseCase {
-    fun registerListData(limit: Int, offset: Int)
-    fun getPokeList(): LiveData<List<Results>>
+    fun pokeList(limit: Int, offset: Int): LiveData<List<Results>>
 }
 
 class GetPokeListUseCaseImpl @Inject constructor(
     private val getPokeListRepository: GetPokeListRepository
 ) : GetPokeListUseCase {
-    override fun registerListData(limit: Int, offset: Int) =
-        getPokeListRepository.registerListData(limit, offset)
-
-    override fun getPokeList(): LiveData<List<Results>> = getPokeListRepository.getPokeList()
+    override fun pokeList(limit: Int, offset: Int): LiveData<List<Results>> =
+        getPokeListRepository.pokeList(limit, offset)
 }

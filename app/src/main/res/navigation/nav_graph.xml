@@ -16,7 +16,7 @@
         android:label="@string/fragment_label_time_line"
         tools:layout="@layout/fragment_time_line">
         <action
-            android:id="@+id/action_TimeLineFragment_to_DetailFragment"
+            android:id="@+id/action_timeLine_to_detail"
             app:destination="@id/DetailFragment" />
     </fragment>
 
@@ -26,8 +26,11 @@
         android:label="@string/fragment_label_detail"
         tools:layout="@layout/fragment_detail">
         <argument
-            android:name="title"
-            app:argType="string"/>
+            android:name="number"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_detail_to_detail"
+            app:destination="@id/DetailFragment" />
     </fragment>
 
     <action android:id="@+id/action_global_CheckMessageDialog"

@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import com.kotlin.project.data.model.Master
 import com.kotlin.project.data.model.Result
 import com.kotlin.project.domain.usecase.GetMasterListUseCase
-import com.kotlin.project.domain.usecase.GetPokeListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,8 +17,7 @@ import javax.inject.Inject
 class TimeLineViewModel @Inject constructor(
     timeLineDelegate: TimeLineDelegate,
     application: Application,
-    private val getMasterListUseCase: GetMasterListUseCase,
-    private val getPokeListUseCase: GetPokeListUseCase
+    private val getMasterListUseCase: GetMasterListUseCase
 ) : AndroidViewModel(application), LifecycleObserver, TimeLineDelegate by timeLineDelegate {
 
     private val _currentTabNumber = MutableLiveData<Int>()
@@ -32,14 +30,11 @@ class TimeLineViewModel @Inject constructor(
         _list.addSource(_currentTabNumber) {
             fetchData()
         }
-        registerPokeData()
     }
 
     fun setCurrentTab(position: Int) {
         _currentTabNumber.value = position
     }
-
-    fun getPokeList() = getPokeListUseCase.getPokeList()
 
     private fun fetchData() {
         viewModelScope.launch(Dispatchers.Default) {
@@ -51,12 +46,6 @@ class TimeLineViewModel @Inject constructor(
                     _list.postValue(listOf())
                 }
             }
-        }
-    }
-
-    private fun registerPokeData() {
-        viewModelScope.launch(Dispatchers.Default) {
-            getPokeListUseCase.registerListData(150, 1)
         }
     }
 }

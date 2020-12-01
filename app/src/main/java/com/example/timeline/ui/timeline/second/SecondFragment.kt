@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.databinding.FragmentSecondBinding
-import com.example.timeline.ui.adapter.RecyclerViewAdapter
+import com.example.timeline.ui.adapter.TimeLineDataRecyclerViewAdapter
 import javax.inject.Inject
 
 class SecondFragment @Inject constructor(
@@ -77,7 +77,7 @@ class SecondFragment @Inject constructor(
 
     private fun observe() {
         secondViewModel.list.observe(viewLifecycleOwner) { list ->
-            binding.recyclerView.adapter = RecyclerViewAdapter(list, parentFragment, secondViewModel.spanCount)
+            binding.recyclerView.adapter = TimeLineDataRecyclerViewAdapter(list, parentFragment, secondViewModel.spanCount)
         }
     }
 

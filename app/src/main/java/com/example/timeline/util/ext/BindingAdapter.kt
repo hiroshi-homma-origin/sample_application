@@ -3,7 +3,6 @@ package com.example.timeline.util.ext
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -53,7 +52,7 @@ fun bindImageFromUrlWithPlaceholder(
                 p3: DataSource?,
                 p4: Boolean
             ): Boolean {
-                //do something when picture already loaded
+                // do something when picture already loaded
                 return false
             }
         })

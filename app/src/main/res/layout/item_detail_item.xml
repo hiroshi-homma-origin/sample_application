@@ -6,12 +6,8 @@
     <data>
 
         <variable
-            name="timeLine"
-            type="com.kotlin.project.data.model.TimeLineData" />
-
-        <variable
-            name="isStatus"
-            type="Boolean" />
+            name="result"
+            type="com.kotlin.project.data.model.Results" />
 
         <variable
             name="imgWidth"
@@ -23,15 +19,15 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray1">
 
         <ImageView
             android:id="@+id/main_image"
-            imageFromUrl="@{timeLine.photo}"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/span_2_img_height_size"
+            imageFromUrl="@{result.image}"
+            android:layout_width="@dimen/span_1_img_width_size"
+            android:layout_height="@dimen/span_1_img_height_size"
             android:layout_marginTop="1dp"
             android:background="@color/image_bg"
             android:scaleType="fitCenter"
@@ -44,26 +40,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:widthDp="@{imgWidth}"
             tools:ignore="ContentDescription"
-            tools:layout_width="@dimen/span_2_img_width_size"
             tools:src="@drawable/placeholder" />
-
-        <ImageView
-            android:id="@+id/typeB"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_margin="8dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/monster_ball_logo"
-            android:visibility="gone"
-            visibleGone="@{isStatus}"
-            app:layout_constraintBottom_toBottomOf="@+id/main_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/main_image"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="ContentDescription"
-            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

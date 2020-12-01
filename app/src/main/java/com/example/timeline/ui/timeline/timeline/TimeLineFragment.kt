@@ -16,7 +16,6 @@ import com.example.timeline.util.viewpager2.ZoomOutPageTransformer
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kotlin.project.data.model.Tab
-import timber.log.Timber
 import javax.inject.Inject
 
 class TimeLineFragment @Inject constructor() : Fragment() {
@@ -50,7 +49,6 @@ class TimeLineFragment @Inject constructor() : Fragment() {
             }
         }
         lifecycle.addObserver(viewModel)
-        observe()
         return binding.root
     }
 
@@ -64,12 +62,6 @@ class TimeLineFragment @Inject constructor() : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun observe() {
-        viewModel.getPokeList().observe(viewLifecycleOwner) {
-            Timber.d("check_observe_data:${it.size}")
-        }
     }
 
     private fun settingViewPager(tab: TabLayout, viewPager: ViewPager2, currentNumber: Int) {

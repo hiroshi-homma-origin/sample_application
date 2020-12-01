@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.timeline.ui.timeline.first.FirstFragment
-import com.example.timeline.ui.timeline.second.SecondFragment
 import com.example.timeline.ui.timeline.fourth.FourthFragment
+import com.example.timeline.ui.timeline.second.SecondFragment
 import com.example.timeline.ui.timeline.third.ThirdFragment
 import com.kotlin.project.data.model.Tab
 

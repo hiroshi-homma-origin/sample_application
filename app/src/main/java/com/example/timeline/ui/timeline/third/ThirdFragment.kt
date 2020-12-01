@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.databinding.FragmentThirdBinding
-import com.example.timeline.ui.adapter.RecyclerViewAdapter
+import com.example.timeline.ui.adapter.TimeLineDataRecyclerViewAdapter
 import javax.inject.Inject
 
 class ThirdFragment @Inject constructor(
@@ -77,7 +77,7 @@ class ThirdFragment @Inject constructor(
 
     private fun observe() {
         thirdViewModel.list.observe(viewLifecycleOwner) { list ->
-            binding.recyclerView.adapter = RecyclerViewAdapter(list, parentFragment, thirdViewModel.spanCount)
+            binding.recyclerView.adapter = TimeLineDataRecyclerViewAdapter(list, parentFragment, thirdViewModel.spanCount)
         }
     }
 
