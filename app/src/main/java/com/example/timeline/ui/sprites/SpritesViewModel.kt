@@ -1,4 +1,4 @@
-package com.example.timeline.ui.detail
+package com.example.timeline.ui.sprites
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

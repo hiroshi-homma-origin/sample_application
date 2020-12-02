@@ -1,4 +1,4 @@
-package com.example.timeline.ui.detail
+package com.example.timeline.ui.sprites
 
 import android.content.res.Configuration
 import android.os.Bundle

@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.R
-import com.example.timeline.databinding.ItemDetailItemBinding
-import com.example.timeline.ui.detail.SpritesFragmentDirections.actionSpritesToSprites
-import com.example.timeline.ui.detail.SpritesViewModel
+import com.example.timeline.databinding.ItemSpritesItemBinding
+import com.example.timeline.ui.sprites.SpritesFragmentDirections.actionSpritesToSprites
+import com.example.timeline.ui.sprites.SpritesViewModel
 
 class SpritesRecyclerViewAdapter(
     private val spritesViewModel: SpritesViewModel,
@@ -19,9 +19,9 @@ class SpritesRecyclerViewAdapter(
 ) : RecyclerView.Adapter<SpritesRecyclerViewAdapter.TimeLineHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineHolder {
-        val binding = DataBindingUtil.inflate<ItemDetailItemBinding>(
+        val binding = DataBindingUtil.inflate<ItemSpritesItemBinding>(
             LayoutInflater.from(parent.context),
-            R.layout.item_detail_item,
+            R.layout.item_sprites_item,
             parent,
             false
         )
@@ -51,5 +51,5 @@ class SpritesRecyclerViewAdapter(
         }
     }
 
-    class TimeLineHolder(val binding: ItemDetailItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class TimeLineHolder(val binding: ItemSpritesItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

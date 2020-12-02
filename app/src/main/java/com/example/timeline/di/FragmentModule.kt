@@ -2,7 +2,7 @@ package com.example.timeline.di
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.example.timeline.ui.detail.SpritesFragment
+import com.example.timeline.ui.sprites.SpritesFragment
 import com.example.timeline.ui.timeline.first.FirstFragment
 import com.example.timeline.ui.timeline.fourth.FourthFragment
 import com.example.timeline.ui.timeline.second.SecondFragment

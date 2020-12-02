@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/SpritesFragment"
-        android:name="com.example.timeline.ui.detail.SpritesFragment"
+        android:name="com.example.timeline.ui.sprites.SpritesFragment"
         android:label="@string/fragment_label_detail"
         tools:layout="@layout/fragment_sprites">
         <argument
