@@ -12,9 +12,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.timeline.R
 import com.example.timeline.databinding.FragmentSpritesBinding
 import com.example.timeline.ui.adapter.SpritesRecyclerViewAdapter
-import timber.log.Timber
+import com.example.timeline.util.ext.GlideApp
 import javax.inject.Inject
 
 class SpritesFragment @Inject constructor() : Fragment() {
@@ -32,12 +33,10 @@ class SpritesFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Timber.d("check_args1:${args.number}")
-        Timber.d("check_args2:${args.limit}")
-        Timber.d("check_args3:${args.offset}")
         _binding = FragmentSpritesBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@SpritesFragment
             settingRecyclerView(recyclerView)
+            GlideApp.with(loading.context).load(R.raw.pokemon_loading).into(loading)
         }
         lifecycle.addObserver(spritesViewModel)
         if (!spritesViewModel.screenHasRotated) {
@@ -60,6 +59,7 @@ class SpritesFragment @Inject constructor() : Fragment() {
                         args.limit,
                         args.offset
                     )
+                binding.loading.visibility = View.GONE
             }
         }
     }

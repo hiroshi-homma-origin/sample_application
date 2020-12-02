@@ -11,6 +11,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.timeline.R
 import com.kotlin.project.data.model.TimeLineStatus
 
 @BindingAdapter("visibleGone")
@@ -55,6 +56,8 @@ fun bindImageFromUrlWithPlaceholder(
                 return false
             }
         })
+        .placeholder(R.color.gray1)
+        .fallback(R.color.gray1)
         .override(400, 400)
         .into(view)
 }

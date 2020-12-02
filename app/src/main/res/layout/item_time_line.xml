@@ -32,7 +32,6 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/span_2_img_height_size"
             android:layout_marginTop="1dp"
-            android:background="@color/image_bg"
             android:scaleType="fitCenter"
             app:heightDp="@{imgHeight}"
             app:layout_constraintBottom_toBottomOf="parent"
