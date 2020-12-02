@@ -13,7 +13,6 @@ import javax.inject.Inject
 
 interface ApolloRepository {
     fun pokeList(limit: Int, offset: Int): MutableLiveData<List<Results>>
-//    fun getPokeList(): MutableLiveData<List<Results>>
 }
 
 class ApolloRepositoryImpl @Inject constructor() : ApolloRepository {
