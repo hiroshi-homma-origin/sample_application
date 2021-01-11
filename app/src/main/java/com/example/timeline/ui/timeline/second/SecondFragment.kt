@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -15,22 +14,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timeline.databinding.FragmentSecondBinding
 import com.example.timeline.ui.adapter.TimeLineDataRecyclerViewAdapter
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class SecondFragment @Inject constructor(
-    private val factory: ViewModelProvider.Factory
-) : Fragment() {
+class SecondFragment : DaggerFragment() {
 
     companion object {
         private const val EXTRA_KEY_PATH = "path"
-        fun newInstance(factory: ViewModelProvider.Factory, path: String) =
-            SecondFragment(factory).apply {
+        fun newInstance(path: String) =
+            SecondFragment().apply {
                 arguments = bundleOf(
                     EXTRA_KEY_PATH to path
                 )
             }
     }
 
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
     private val secondViewModel: SecondViewModel by viewModels { factory }
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = requireNotNull(_binding)

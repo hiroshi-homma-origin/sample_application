@@ -10,41 +10,37 @@ import com.example.timeline.ui.timeline.third.ThirdFragment
 import com.example.timeline.ui.timeline.timeline.TimeLineFragment
 import dagger.Binds
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module
-interface FragmentModule {
+internal abstract class FragmentModule {
 
     @Binds
-    fun provideFragmentFactory(factory: MyFragmentFactory): FragmentFactory
+    abstract fun provideFragmentFactory(factory: MyFragmentFactory): FragmentFactory
 
-    @Binds
-    @IntoMap
-    @FragmentKey(FirstFragment::class)
-    fun provideFirstFragment(fragment: FirstFragment): Fragment
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun provideFirstFragment(): FirstFragment
 
-    @Binds
-    @IntoMap
-    @FragmentKey(SecondFragment::class)
-    fun provideSecondFragment(fragment: SecondFragment): Fragment
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun provideSecondFragment(): SecondFragment
 
-    @Binds
-    @IntoMap
-    @FragmentKey(ThirdFragment::class)
-    fun provideThirdFragment(fragment: ThirdFragment): Fragment
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun provideThirdFragment(): ThirdFragment
 
-    @Binds
-    @IntoMap
-    @FragmentKey(FourthFragment::class)
-    fun provideFourthFragment(fragment: FourthFragment): Fragment
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun provideFourthFragment(): FourthFragment
 
-    @Binds
-    @IntoMap
-    @FragmentKey(TimeLineFragment::class)
-    fun provideTimeLineFragment(fragment: TimeLineFragment): Fragment
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun provideTimeLineFragment(): TimeLineFragment
 
     @Binds
     @IntoMap
     @FragmentKey(SpritesFragment::class)
-    fun provideSpritesFragment(fragment: SpritesFragment): Fragment
+    abstract fun provideSpritesFragment(fragment: SpritesFragment): Fragment
 }

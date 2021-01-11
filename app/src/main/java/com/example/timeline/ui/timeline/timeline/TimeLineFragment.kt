@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,9 +15,10 @@ import com.example.timeline.util.viewpager2.ZoomOutPageTransformer
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kotlin.project.data.model.Tab
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class TimeLineFragment @Inject constructor() : Fragment() {
+class TimeLineFragment : DaggerFragment() {
 
     companion object {
         private const val EXTRA_KEY_CURRENT_NUMBER = "currentTabNumber"
@@ -66,7 +66,7 @@ class TimeLineFragment @Inject constructor() : Fragment() {
 
     private fun settingViewPager(tab: TabLayout, viewPager: ViewPager2, currentNumber: Int) {
         viewPager.apply {
-            adapter = TimeLineViewPagerAdapter(this@TimeLineFragment, factory)
+            adapter = TimeLineViewPagerAdapter(this@TimeLineFragment)
             viewPager.setPageTransformer(ZoomOutPageTransformer())
             TabLayoutMediator(tab, viewPager) { t, p ->
                 t.text = Tab.values()[p].displayName

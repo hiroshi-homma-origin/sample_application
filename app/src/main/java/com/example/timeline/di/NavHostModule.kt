@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class AppModule {
+abstract class NavHostModule {
     @ContributesAndroidInjector(modules = [FragmentModule::class])
     abstract fun navHostFragmentInjector(): InjectingNavHostFragment
 }
